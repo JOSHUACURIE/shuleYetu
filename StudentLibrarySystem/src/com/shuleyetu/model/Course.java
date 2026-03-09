@@ -11,7 +11,7 @@ public class Course {
     private String courseTitle;
     private int creditUnits;
     private String description;
-    private String level;  // "100", "200", "300", "400", "500"
+    private String level;  
     private boolean isActive;
     private Timestamp createdAt;
     
@@ -21,11 +21,7 @@ public class Course {
     private List<Prerequisite> prerequisites;  // courses required before this
     private List<Course> dependentCourses;  // courses that need this as prerequisite
     
-    // ============ CONSTRUCTORS ============
-    
-    /**
-     * Default constructor
-     */
+
     public Course() {
         this.programmes = new ArrayList<>();
         this.offerings = new ArrayList<>();
@@ -34,9 +30,7 @@ public class Course {
         this.isActive = true;
     }
     
-    /**
-     * Constructor with required fields
-     */
+
     public Course(String courseCode, String courseTitle, int creditUnits, String level) {
         this();
         this.courseCode = courseCode;
@@ -173,11 +167,7 @@ public class Course {
         this.dependentCourses = dependentCourses;
     }
     
-    // ============ BUSINESS METHODS ============
-    
-    /**
-     * Add a programme to this course
-     */
+
     public void addProgramme(Programme programme) {
         if (this.programmes == null) {
             this.programmes = new ArrayList<>();
@@ -187,19 +177,14 @@ public class Course {
         }
     }
     
-    /**
-     * Remove a programme from this course
-     */
+
     public boolean removeProgramme(Programme programme) {
         if (this.programmes != null) {
             return this.programmes.remove(programme);
         }
         return false;
     }
-    
-    /**
-     * Add a course offering
-     */
+   
     public void addOffering(CourseOffering offering) {
         if (this.offerings == null) {
             this.offerings = new ArrayList<>();
@@ -207,9 +192,7 @@ public class Course {
         this.offerings.add(offering);
     }
     
-    /**
-     * Add a prerequisite course
-     */
+
     public void addPrerequisite(Course prerequisite, String requirementType) {
         if (this.prerequisites == null) {
             this.prerequisites = new ArrayList<>();
@@ -223,16 +206,12 @@ public class Course {
         this.prerequisites.add(prereq);
     }
     
-    /**
-     * Check if this course has any prerequisites
-     */
+   
     public boolean hasPrerequisites() {
         return prerequisites != null && !prerequisites.isEmpty();
     }
     
-    /**
-     * Get prerequisite course IDs
-     */
+
     public List<Integer> getPrerequisiteIds() {
         List<Integer> ids = new ArrayList<>();
         if (prerequisites != null) {
@@ -245,9 +224,7 @@ public class Course {
         return ids;
     }
     
-    /**
-     * Get prerequisite course codes
-     */
+  
     public List<String> getPrerequisiteCodes() {
         List<String> codes = new ArrayList<>();
         if (prerequisites != null) {
@@ -259,10 +236,7 @@ public class Course {
         }
         return codes;
     }
-    
-    /**
-     * Check if this course is offered in a specific semester
-     */
+ 
     public boolean isOfferedInSemester(int semesterId) {
         if (offerings != null) {
             for (CourseOffering offering : offerings) {
@@ -274,9 +248,8 @@ public class Course {
         return false;
     }
     
-    /**
-     * Get total number of students ever enrolled
-     */
+
+
     public int getTotalEnrolledStudents() {
         int total = 0;
         if (offerings != null) {
@@ -287,9 +260,7 @@ public class Course {
         return total;
     }
     
-    /**
-     * Get current offering (if any)
-     */
+ 
     public CourseOffering getCurrentOffering() {
         if (offerings != null) {
             for (CourseOffering offering : offerings) {
