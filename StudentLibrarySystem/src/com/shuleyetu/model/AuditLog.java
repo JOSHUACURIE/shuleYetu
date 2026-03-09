@@ -17,19 +17,12 @@ public class AuditLog {
     
     // Relationships
     private UserAccount user;
-    
-    // ============ CONSTRUCTORS ============
-    
-    /**
-     * Default constructor
-     */
+ 
     public AuditLog() {
-        // Default constructor
+     
     }
     
-    /**
-     * Constructor with all fields (except auto-generated)
-     */
+ 
     public AuditLog(Integer userId, String actionType, String tableName, 
                     Integer recordId, String oldValue, String newValue, 
                     String ipAddress, String userAgent) {
@@ -43,18 +36,14 @@ public class AuditLog {
         this.userAgent = userAgent;
     }
     
-    /**
-     * Constructor for simple login/logout actions
-     */
+
     public AuditLog(Integer userId, String actionType, String ipAddress) {
         this.userId = userId;
         this.actionType = actionType;
         this.ipAddress = ipAddress;
     }
     
-    /**
-     * Constructor for database operations
-     */
+
     public AuditLog(Integer userId, String actionType, String tableName, 
                     Integer recordId, String oldValue, String newValue) {
         this.userId = userId;
