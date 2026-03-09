@@ -316,46 +316,46 @@ public class AcademicYear {
         return startYear + "/" + endYear;
     }
     
-    /**
-     * Create default semesters for this academic year
-     */
-    public void createDefaultSemesters() {
-        if (startDate == null || endDate == null) return;
+    // /**
+    //  * Create default semesters for this academic year
+    //  */
+    // public void createDefaultSemesters() {
+    //     if (startDate == null || endDate == null) return;
         
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(startDate);
+    //     Calendar cal = Calendar.getInstance();
+    //     cal.setTime(startDate);
         
-        // Semester 1: Start date to mid-year
-        Calendar sem1End = Calendar.getInstance();
-        sem1End.setTime(startDate);
-        sem1End.add(Calendar.MONTH, 5); // ~5 months for semester 1
+    //     // Semester 1: Start date to mid-year
+    //     Calendar sem1End = Calendar.getInstance();
+    //     sem1End.setTime(startDate);
+    //     sem1End.add(Calendar.MONTH, 5); // ~5 months for semester 1
         
-        Semester semester1 = new Semester(
-            this.academicYearId,
-            "1",
-            new Date(startDate.getTime()),
-            new Date(sem1End.getTimeInMillis()),
-            false,
-            null
-        );
+    //     Semester semester1 = new Semester(
+    //         this.academicYearId,
+    //         "1",
+    //         new Date(startDate.getTime()),
+    //         new Date(sem1End.getTimeInMillis()),
+    //         false,
+    //         null
+    //     );
         
-        // Semester 2: Mid-year to end date
-        Calendar sem2Start = Calendar.getInstance();
-        sem2Start.setTime(sem1End.getTime());
-        sem2Start.add(Calendar.DAY_OF_MONTH, 1);
+    //     // Semester 2: Mid-year to end date
+    //     Calendar sem2Start = Calendar.getInstance();
+    //     sem2Start.setTime(sem1End.getTime());
+    //     sem2Start.add(Calendar.DAY_OF_MONTH, 1);
         
-        Semester semester2 = new Semester(
-            this.academicYearId,
-            "2",
-            new Date(sem2Start.getTimeInMillis()),
-            new Date(endDate.getTime()),
-            false,
-            null
-        );
+    //     Semester semester2 = new Semester(
+    //         this.academicYearId,
+    //         "2",
+    //         new Date(sem2Start.getTimeInMillis()),
+    //         new Date(endDate.getTime()),
+    //         false,
+    //         null
+    //     );
         
-        addSemester(semester1);
-        addSemester(semester2);
-    }
+    //     addSemester(semester1);
+    //     addSemester(semester2);
+    // }
     
     /**
      * Check if a given date falls within this academic year
