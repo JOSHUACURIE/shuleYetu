@@ -402,6 +402,16 @@ public class Lecturer extends Person {
         }
         return semesterCourses;
     }
+       
+    @Override
+    public int getTypeId() {
+        return lecturerId;
+    }
+    
+    @Override
+    public String getIdentifier() {
+        return staffNumber;
+    }
     
     // ============ equals() and hashCode() ============
     

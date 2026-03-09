@@ -411,7 +411,16 @@ public class Admin extends Person {
         if (minutes > 0) return minutes + " minutes ago";
         return "Just now";
     }
+     
+    @Override
+    public int getTypeId() {
+        return adminId;
+    }
     
+    @Override
+    public String getIdentifier() {
+        return employeeNumber;
+    }
     // ============ equals() and hashCode() ============
     
     @Override

@@ -10,7 +10,7 @@ public abstract class Person {
     private String email;
     private String phone;
     private String address;
-    private String role;  // "STUDENT", "LECTURER", "ADMIN"
+    public String role;  // "STUDENT", "LECTURER", "ADMIN"
     private String gender;
     private Timestamp createdAt;
     private Timestamp updatedAt;
@@ -41,7 +41,24 @@ public abstract class Person {
         this(name, email);
         this.personId = personId;
     }
-    
+    public Person(String name,String email,String phone,String role){
+        this.name=name;
+        this.email=email;
+        this.phone=phone;
+        this.role="LECTURER";
+        
+    }
+
+       public Person(int personId,String name,String email,String phone,String role,Timestamp createdAt,Timestamp updatedAt){
+        this.personId=personId;
+        this.name=name;
+        this.email=email;
+        this.phone=phone;
+        this.role="LECTURER";
+        this.createdAt=createdAt;
+        this.updatedAt=updatedAt;
+    }
+
     /**
      * Constructor with all basic fields
      */

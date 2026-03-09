@@ -152,11 +152,7 @@ public class Student extends Person {
         return enrollmentDate;
     }
     
-    public void setEnrollmentDate(Date enrollmentDate) {
-        this.enrollmentDate = enrollmentDate;
-        updateTimestamp();
-    }
-    
+
     // Fixed method name (was setEntollmentId)
     public void setEnrollmentDate(Date enrollmentDate) {
         this.enrollmentDate = enrollmentDate;
@@ -392,7 +388,7 @@ public class Student extends Person {
     /**
      * Update the updatedAt timestamp
      */
-    private void updateTimestamp() {
+    public void updateTimestamp() {
         this.updatedAt = new Timestamp(System.currentTimeMillis());
     }
     
